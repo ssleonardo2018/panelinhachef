@@ -3,7 +3,7 @@
 **Panelinha Chef** é uma aplicação web responsiva desenvolvida em **HTML, CSS e JavaScript** para gerenciar receitas culinárias.  
 O projeto permite **cadastrar, editar, excluir e favoritar receitas**, além de realizar **buscas avançadas**.  
 
-LINK: https://ssleonardo2018.github.io/panelinhachef1
+LINK: https://ssleonardo2018.github.io/panelinhachef
 
 ---
 
