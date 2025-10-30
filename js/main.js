@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
   // sample data if empty
   if(APP.recipes.length===0){
     APP.recipes = [
-      {id:1,title:'Bolo de Cenoura',desc:'Delicioso bolo com cobertura',category:'Sobremesa',time:45,ingredients:['cenoura','farinha','açúcar'],img:'https://picsum.photos/seed/bolo/600/400',author:'admin',favorites:0},
-      {id:2,title:'Lasanha à Bolonhesa',desc:'Massa caseira e queijo',category:'Prato Principal',time:70,ingredients:['massa','queijo','carne'],img:'https://picsum.photos/seed/lasanha/600/400',author:'admin',favorites:0},
-      {id:3,title:'Salada Tropical',desc:'Leve e refrescante',category:'Entrada',time:15,ingredients:['alface','manga','tomate'],img:'https://picsum.photos/seed/salada/600/400',author:'chef',favorites:0}
+      {id:1,title:'Bolo de Cenoura com farinha de arroz',desc:'Delicioso bolo com cobertura',category:'Sobremesa',time:70,ingredients:['cenoura','farinha','açúcar'],img:'https://www.sabornamesa.com.br/media/k2/items/cache/919acbd93a09198eef55d141863c0dbb_XL.jpg',author:'admin',favorites:0},
+      {id:2,title:'Lasanha à Bolonhesa',desc:'Massa caseira e queijo',category:'Prato Principal',time:50,ingredients:['massa','queijo','carne'],img:'https://static.itdg.com.br/images/360-240/ec2a5e38702c60bf1ace0b5f1c8e9415/shutterstock-739787011.jpg',author:'admin',favorites:0},
+      {id:3,title:'Salada Tropical de Natal',desc:'Leve e refrescante',category:'Entrada',time:30,ingredients:['alface','manga','tomate'],img:'https://receitadaboa.com.br/wp-content/uploads/2024/03/salada_5-25522851.png',author:'chef',favorites:0}
     ];
     localStorage.setItem('pc_recipes', JSON.stringify(APP.recipes));
   }
