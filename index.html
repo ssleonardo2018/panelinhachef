@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panelinha Chef</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="img/logo.png" alt="Panelinha Chef" class="logo">
+      <span class="appname">Panelinha Chef</span>
+    </div>
+    <div class="actions">
+      <button id="toggleDarkDash" class="btn small">🌓</button>
+      <button id="btnLogin" class="btn">Entrar</button>
+      <button id="btnRegister" class="btn outline">Criar conta</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Receitas deliciosas ao seu alcance</h1>
+      <p>Busque por nome, ingrediente, categoria ou tempo de preparo.</p>
+
+      <form id="searchForm" class="search-advanced">
+        <input type="text" id="q" placeholder="Nome da receita ou ingrediente">
+        <select id="category">
+          <option value="">Categoria</option>
+          <option>Entrada</option>
+          <option>Prato Principal</option>
+          <option>Sobremesa</option>
+          <option>Bebida</option>
+        </select>
+        <input type="number" id="maxTime" placeholder="Tempo máximo (min)" min="1">
+        <button type="submit" class="btn">Buscar</button>
+      </form>
+    </section>
+
+    <section id="feed" class="feed">
+      <!-- cards rendered by JS -->
+    </section>
+  </main>
+
+  <!-- Auth modal reused for login/register -->
+  <div id="authModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeAuth" class="close">✕</button>
+      <h3 id="authTitle">Entrar</h3>
+      <form id="authForm">
+        <input type="text" id="name" placeholder="Nome (apenas no cadastro)">
+        <input type="email" id="email" placeholder="E-mail" required>
+        <input type="password" id="password" placeholder="Senha" required>
+        <button id="authSubmit" class="btn">Entrar</button>
+      </form>
+      <p id="authToggle">Não tem conta? <a href="#" id="switchToRegister">Cadastrar</a></p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/recipes.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/darkmode.js"></script>
+</body>
+</html>

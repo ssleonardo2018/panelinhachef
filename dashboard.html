@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - Panelinha Chef</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="img/logo.png" alt="Panelinha Chef" class="logo">
+      <!-- O nome do usuário será inserido aqui -->
+      <span class="appname" id="userName">Panelinha Chef</span>
+    </div>
+
+    <!-- Botão de menu hamburguer -->
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+
+    <div class="actions" id="actionsMenu">
+      <button id="toggleDarkDash" class="btn small">🌓</button>
+      <button id="btnLogout" class="btn outline">Sair</button>
+    </div>
+
+    <!-- Menu mobile (hamburguer) -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <button class="mobile-link" data-view="feed">Feed</button>
+      <button class="mobile-link" data-view="create">Cadastrar Receitas</button>
+      <button class="mobile-link" data-view="favorites">Favoritos</button>
+      <button class="mobile-link" data-view="profile">Perfil</button>
+      <button id="mobileLogout" class="mobile-link logout">Sair</button>
+    </nav>
+  </header>
+
+  <main class="dashboard container">
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <button class="side-btn" data-view="feed">Feed</button>
+        <button class="side-btn" data-view="create">Cadastrar Receita</button>
+        <button class="side-btn" data-view="favorites">Favoritos</button>
+        <button class="side-btn" data-view="profile">Perfil</button>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <div id="viewFeed" class="view">
+        <h2>Feed de Receitas</h2>
+        <div id="allFeed" class="feed"></div>
+      </div>
+
+      <div id="viewCreate" class="view hidden">
+        <h2>Cadastrar / Editar Receita</h2>
+        <form id="recipeForm" class="recipe-form">
+          <input type="text" id="rTitle" placeholder="Título" required>
+          <input type="text" id="rCategory" placeholder="Categoria (ex: Sobremesa)" required>
+          <input type="number" id="rTime" placeholder="Tempo (min)" min="1" required>
+          <textarea id="rIngredients" placeholder="Ingredientes (uma por linha)" required></textarea>
+          <textarea id="rSteps" placeholder="Modo de preparo" required></textarea>
+          <input type="url" id="rImage" placeholder="URL da imagem (opcional)">
+          <div class="form-actions">
+            <button type="submit" class="btn">Salvar</button>
+            <button id="cancelEdit" type="button" class="btn outline">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="viewFavorites" class="view hidden">
+        <h2>Favoritos</h2>
+        <div id="favList" class="feed"></div>
+      </div>
+
+      <div id="viewProfile" class="view hidden">
+        <h2>Perfil</h2>
+        <div class="card profile-card">
+          <p><strong id="profileName"></strong></p>
+          <p id="profileEmail"></p>
+          <hr>
+          <h4>Alterar senha</h4>
+          <input type="password" id="newPass" placeholder="Nova senha">
+          <button id="changePass" class="btn">Salvar nova senha</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/recipes.js"></script>
+  <script src="js/darkmode.js"></script>
+
+  <script>
+    // Exibir nome do usuário logado
+    document.addEventListener('DOMContentLoaded', () => {
+      const userNameSpan = document.getElementById('userName');
+      const loggedEmail = localStorage.getItem('pc_logged');
+      const users = JSON.parse(localStorage.getItem('pc_users') || '{}');
+      if (loggedEmail && users[loggedEmail]) {
+        userNameSpan.textContent = users[loggedEmail].name;
+      }
+    });
+
+    // Menu hambúrguer
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+
+    // Ações do menu mobile
+    const mobileLinks = document.querySelectorAll('.mobile-link[data-view]');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const view = e.target.dataset.view;
+        document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+        document.getElementById('view' + view.charAt(0).toUpperCase() + view.slice(1)).classList.remove('hidden');
+        mobileMenu.classList.remove('show');
+      });
+    });
+
+    // Logout via menu mobile
+    document.getElementById('mobileLogout').addEventListener('click', () => {
+      localStorage.removeItem('pc_logged');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
