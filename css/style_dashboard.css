@@ -1,0 +1,173 @@
+:root{
+  --brown-900: #341d12; /* dark outline */
+  --brown-700: #5a3a23;
+  --beige: #f5e6d6;
+  --accent: #d94f28; /* red/orange ribbon */
+  --card: #fff9f4;
+  --muted:#7b5a49;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Poppins', sans-serif;
+  background:var(--beige);
+  color:#2b2b2b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--brown-700),var(--brown-900));
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:100%;
+  background:white;
+  padding:6px;
+}
+.appname{font-size:1.25rem;font-weight:700;letter-spacing:0.5px}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.btn{background:var(--accent);border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+.btn.small{padding:6px 8px;font-size:0.9rem;border-radius:6px}
+.btn.outline{background:transparent;border:2px solid rgba(255,255,255,0.15);color:white}
+
+.container{max-width:1100px;margin:18px auto;padding:0 16px}
+
+.hero{padding:18px 0;text-align:center}
+.hero h1{margin:.25rem 0;font-size:1.6rem;color:var(--brown-900)}
+.hero p{margin:0 0 12px;color:var(--muted)}
+
+.search-advanced{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.search-advanced input,
+.search-advanced select{padding:10px;border-radius:10px;border:1px solid #e6d9cc;background:white;min-width:180px}
+.search-advanced button{padding:10px 16px;border-radius:10px}
+
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+
+.card{background:var(--card);border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.07);overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;height:160px;object-fit:cover}
+.card-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+.card-title{display:flex;align-items:center;justify-content:space-between;font-weight:700;color:var(--brown-900)}
+.tag{font-size:0.9rem;background:rgba(52,29,18,0.06);padding:6px 8px;border-radius:8px;color:var(--muted)}
+
+.card .meta{display:flex;gap:10px;align-items:center;font-size:0.9rem;color:var(--muted)}
+
+.favorite-btn{background:none;border:none;font-size:1.1rem;cursor:pointer;color:#bdbdbd}
+.favorite-btn.fav{color:var(--accent)}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal.hidden{display:none}
+.modal-card{background:white;border-radius:10px;padding:18px;max-width:420px;width:100%;position:relative}
+.modal-card input, .modal-card textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #e6d9cc}
+.close{position:absolute;right:10px;top:8px;border:none;background:none;font-size:1.1rem;cursor:pointer}
+
+/* Dashboard layout */
+.dashboard{display:flex;gap:20px}
+.sidebar{width:220px}
+.sidebar nav{display:flex;flex-direction:column;gap:8px;padding:8px}
+.side-btn{padding:10px;border-radius:8px;border:none;background:linear-gradient(90deg,var(--card),#f0e7dd);cursor:pointer;text-align:left;font-weight:600}
+.content{flex:1}
+
+/* form on dashboard */
+.recipe-form input, .recipe-form textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #e6d9cc}
+.form-actions{display:flex;gap:8px}
+
+/* small helper */
+.hidden{display:none}
+
+/* responsive */
+@media (max-width:900px){
+  .dashboard{flex-direction:column}
+  .sidebar{width:100%;order:2}
+}
+/* Dark mode */
+body.dark{
+  --brown-900:#e8d6c9;
+  --brown-700:#caa788;
+  --beige:#2b221b;
+  --accent:#ff8c42;
+  --card:#1f1b18;
+  background: #130f0c;
+  color:#efeae5;
+}
+body.dark .topbar{background:linear-gradient(90deg,#3b2b24,#20150f)}
+body.dark .btn.outline{border-color:rgba(255,255,255,0.12)}
+
+/* ===== MENU HAMBURGUER MOBILE ===== */
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo do menu mobile */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background: var(--brown-900);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  flex-direction: column;
+  z-index: 100;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-link {
+  background: transparent;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-link:hover {
+  background: var(--brown-700);
+}
+
+.mobile-link.logout {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
