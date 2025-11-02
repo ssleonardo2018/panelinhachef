@@ -8,9 +8,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
   // sample data if empty
   if(APP.recipes.length===0){
     APP.recipes = [
-      {id:1,title:'Bolo de Cenoura com farinha de arroz',desc:'Ddlicioso bolo de Cenoura',category:'Sobremesa',time:70,ingredients:['cenoura','farinha','açúcar'],img:'https://www.sabornamesa.com.br/media/k2/items/cache/919acbd93a09198eef55d141863c0dbb_XL.jpg',author:'admin',favorites:0},
+      {id:1,title:'Bolo de Cenoura com farinha de arroz',desc:'Delicioso bolo de Cenoura',category:'Sobremesa',time:70,ingredients:['cenoura','farinha','açúcar'],img:'https://www.sabornamesa.com.br/media/k2/items/cache/919acbd93a09198eef55d141863c0dbb_XL.jpg',author:'admin',favorites:0},
       {id:2,title:'Lasanha à Bolonhesa',desc:'Massa caseira e queijo',category:'Prato Principal',time:50,ingredients:['massa','queijo','carne'],img:'https://static.itdg.com.br/images/360-240/ec2a5e38702c60bf1ace0b5f1c8e9415/shutterstock-739787011.jpg',author:'admin',favorites:0},
-      {id:3,title:'Salada Tropical de Natal',desc:'Leve e refrescante',category:'Entrada',time:30,ingredients:['alface','manga','tomate'],img:'https://receitadaboa.com.br/wp-content/uploads/2024/03/salada_5-25522851.png',author:'chef',favorites:0}
+      {id:3,title:'Salada Tropical de Natal',desc:'Leve e refrescante',category:'Entrada',time:30,ingredients:['alface','manga','tomate'],img:'https://receitadaboa.com.br/wp-content/uploads/2024/03/salada_5-25522851.png',author:'chef',favorites:0},
+
+      // +7 novas receitas
+      {id:4,title:'Panqueca de Frango',desc:'Panqueca leve e saborosa com recheio cremoso de frango.',category:'Prato Principal',time:40,ingredients:['frango desfiado','massa','molho de tomate'],img:'https://www.sabornamesa.com.br/media/k2/items/cache/9c3bc44cb15a63a142f6c87927d920a8_XL.jpg',author:'chef',favorites:0},
+      {id:5,title:'Mousse de Maracujá',desc:'Sobremesa cremosa e refrescante, perfeita para o calor.',category:'Sobremesa',time:20,ingredients:['maracujá','leite condensado','creme de leite'],img:'https://www.receiteria.com.br/wp-content/uploads/mousse-de-maracuja-simples-1.jpg',author:'admin',favorites:0},
+      {id:6,title:'Arroz de Forno',desc:'Receita prática e deliciosa com sobras de arroz e queijo.',category:'Prato Principal',time:45,ingredients:['arroz','presunto','queijo'],img:'https://www.receitasnestle.com.br/sites/default/files/srh_recipes/7dc0e4c5e4a7b72f621fdf274adf6a68.jpg',author:'chef',favorites:0},
+      {id:7,title:'Omelete de Legumes',desc:'Leve, nutritiva e ideal para um café da manhã saudável.',category:'Café da Manhã',time:15,ingredients:['ovos','cenoura','tomate','cebola'],img:'https://static.itdg.com.br/images/360-240/1c01143a74b7b03e7c7713b1886b10db/omelete-de-legumes.jpg',author:'chef',favorites:0},
+      {id:8,title:'Cookies de Aveia e Mel',desc:'Biscoitos crocantes e saudáveis para o lanche.',category:'Lanche',time:25,ingredients:['aveia','mel','farinha'],img:'https://www.receiteria.com.br/wp-content/uploads/cookies-de-aveia-1.jpg',author:'admin',favorites:0},
+      {id:9,title:'Escondidinho de Carne Seca',desc:'Sabor brasileiro com purê de mandioca e carne seca desfiada.',category:'Prato Principal',time:60,ingredients:['mandioca','carne seca','queijo'],img:'https://www.receitasnestle.com.br/sites/default/files/srh_recipes/872176df0a9911a79a4b1b2b59d382e5.jpg',author:'chef',favorites:0},
+      {id:10,title:'Suco Verde Detox',desc:'Refrescante e energizante, ideal para o pós-treino.',category:'Bebida',time:10,ingredients:['couve','limão','maçã','gengibre'],img:'https://www.receiteria.com.br/wp-content/uploads/suco-verde-com-limao-1.jpg',author:'nutricionista',favorites:0}
     ];
     localStorage.setItem('pc_recipes', JSON.stringify(APP.recipes));
   }
@@ -41,7 +50,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   function closeAuthModal(){ authModal.classList.add('hidden'); }
 
-  // auth form submit handled in auth.js - just set default here
   // render feed
   function renderFeed(list){
     feed.innerHTML='';
@@ -56,7 +64,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           <p>${r.desc||''}</p>
           <div style="margin-top:auto;display:flex;gap:8px;">
             <button class="btn small" data-id="${r.id}" onclick="viewRecipe(${r.id})">Ver mais</button>
-            <button class="btn outline small" onclick="openAuthorRecipes('${r.author}')">Mais do autor</button>
+            <button class="btn small" onclick="openAuthorRecipes('${r.author}')">Mais do autor</button>
           </div>
         </div>
       `;
