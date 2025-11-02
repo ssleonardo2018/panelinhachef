@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.APP = window.APP || {};
       window.APP.logged = email;
 
-      alert('Bem-vindo, ' + users[email].name);
+      // alert('Bem-vindo, ' + users[email].name);
 
       // Fecha o modal de login, se existir
       const authModal = document.getElementById('authModal');
