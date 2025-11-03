@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obrigado — Panelinha Chef</title>
+  <style>
+    :root {
+      --primary: #e67e22;
+      --dark: #333;
+      --success: #27ae60;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .card {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.93);
+      border-radius: 20px;
+      padding: 50px 35px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: fadeUp 1s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      background-color: var(--success);
+      margin-bottom: 25px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+    }
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 17px;
+      width: 20px;
+      height: 40px;
+      border-right: 5px solid white;
+      border-bottom: 5px solid white;
+      transform: rotate(45deg);
+    }
+    h1 { color: var(--primary); font-weight: 700; margin-bottom: 15px; }
+    p { font-size: 1.1rem; color: #444; margin-bottom: 35px; }
+    .btn-voltar {
+      background-color: var(--primary);
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .btn-voltar:hover { background-color: #cf6d17; transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="checkmark"></div>
+    <img src="https://ssleonardo2018.github.io/panelinhachef/img/logo.png" alt="Logo Panelinha Chef" style="height: 70px; margin-bottom: 10px;">
+    <h1>Inscrição confirmada! 🎉</h1>
+    <p>Agora você receberá receitas exclusivas e novidades deliciosas diretamente no seu e-mail. 🍲</p>
+    <a href="index.html" class="btn-voltar">Voltar ao início</a>
+  </div>
+</body>
+</html>

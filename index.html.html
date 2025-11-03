@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panelinha Chef — Lançamento Oficial 🍳</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root { --primary: #e67e22; --dark: #333; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: var(--dark); overflow-x: hidden; position: relative; }
+    .navbar { background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .navbar-brand img { height: 50px; }
+    .navbar-nav .nav-link { color: var(--dark); font-weight: 500; margin: 0 10px; }
+    .navbar-nav .nav-link:hover { color: var(--primary); }
+    .hero { background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; text-align: center; padding: 140px 20px; position: relative; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+    .hero .content { position: relative; z-index: 2; }
+    .hero h1 { font-size: 3rem; font-weight: bold; }
+    .hero p { font-size: 1.3rem; margin: 20px 0 40px; }
+    .btn-cta { background-color: var(--primary); border: none; padding: 15px 35px; border-radius: 30px; color: #fff; transition: 0.3s; font-size: 1.1rem; }
+    .btn-cta:hover { background-color: #cf6d17; }
+
+    .features { padding: 80px 0; background: #f8f8f8; text-align: center; }
+    
+    .features h2 { color: var(--primary); font-weight: bold; margin-bottom: 40px; }
+    
+    .features .feature img { width: 100%; max-width: 250px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    
+    .benefits { padding: 80px 0; background: white; text-align: center; }
+    .benefits h2 { color: var(--primary); margin-bottom: 40px; }
+    .benefits .card { border: none; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 30px; transition: transform 0.3s; }
+    .benefits .card:hover { transform: scale(1.05); }
+    .newsletter { background-color: var(--primary); color: #fff; padding: 80px 0; text-align: center; }
+    .newsletter input { max-width: 350px; padding: 12px; border-radius: 30px; border: none; margin-right: 10px; outline: none; }
+    .newsletter button { background: #fff; color: var(--primary); border: none; border-radius: 30px; padding: 12px 25px; font-weight: 500; transition: background 0.3s; }
+    .newsletter button:hover { background: #f2f2f2; }
+    footer { background-color: var(--dark); color: #bbb; text-align: center; padding: 30px 10px; }
+
+    /* Botão Voltar ao Topo */
+    #btnTopo {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 99;
+      animation: pulse 2s infinite;
+    }
+    #btnTopo:hover { background-color: #cf6d17; transform: scale(1.15); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(230, 126, 34, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://ssleonardo2018.github.io/panelinhachef/img/logo.png" alt="Panelinha Chef"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inscricao">Inscrição</a></li>
+          <li class="nav-item"><a class="nav-link" href="mailto:panelinhachef@gmail.com">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="content container">
+      <h1>🍳 Está chegando o Panelinha Chef!</h1>
+      <p>A nova forma de organizar e compartilhar suas receitas está prestes a ser lançada. Crie, salve, favorite e explore o sabor da inovação.</p>
+      <a href="#inscricao" class="btn btn-cta">Quero ser avisado no lançamento</a>
+    </div>
+  </section>
+
+  <section class="features container">
+    <h2>Descubra o que vem por aí...</h2>
+    <div class="row g-4">
+      <div class="col-md-4 feature">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Receitas fáceis">
+        <h5>Crie suas próprias receitas</h5>
+        <p>Cadastre suas receitas de forma prática e tenha tudo salvo na nuvem, acessível em qualquer dispositivo.</p>
+      </div>
+      <div class="col-md-4 feature">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Favoritos">
+        <h5>Favoritos e organização</h5>
+        <p>Marque receitas favoritas, organize suas preferidas e monte seu caderno digital de culinária.</p>
+      </div>
+      <div class="col-md-4 feature">
+        <img src="img/dark.png" alt="Tema Dark">
+        <h5>Tema claro e escuro</h5>
+        <p>Use como quiser! O Panelinha Chef traz o modo escuro para deixar sua experiência mais confortável.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <h2>Por que você vai amar o Panelinha Chef?</h2>
+      <div class="row g-4">
+        <div class="col-md-3"><div class="card"><h5>✨ Simplicidade</h5><p>Interface leve e intuitiva para qualquer usuário.</p></div></div>
+        <div class="col-md-3"><div class="card"><h5>💾 Segurança</h5><p>Seus dados e receitas sempre salvos e protegidos.</p></div></div>
+        <div class="col-md-3"><div class="card"><h5>📱 Acesso em qualquer lugar</h5><p>Funciona perfeitamente no celular, tablet ou computador.</p></div></div>
+        <div class="col-md-3"><div class="card"><h5>🌙 Personalização</h5><p>Escolha entre modo claro ou escuro conforme seu estilo.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inscricao" class="newsletter">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Seja o primeiro a experimentar o Panelinha Chef!</h2>
+      <p class="mb-4">Inscreva-se para receber o link de acesso ao lançamento oficial.</p>
+
+      <!-- Formulário "falso" — não envia email; apenas redireciona -->
+      <form id="fakeForm" class="d-flex flex-column flex-md-row justify-content-center align-items-center" novalidate>
+        <input type="email" id="emailInput" class="form-control mb-3 mb-md-0" name="email" placeholder="Digite seu e-mail" required>
+        <button type="submit">Quero participar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Panelinha Chef — Uma criação de Leonardo Santos</p>
+    <p><a href="https://ssleonardo2018.github.io/panelinhachef/" style="color:#e67e22;">Acesse o protótipo da aplicação</a></p>
+  </footer>
+
+  <button id="btnTopo" title="Voltar ao topo">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnTopo = document.getElementById('btnTopo');
+    window.onscroll = function() {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        btnTopo.style.display = 'flex';
+      } else {
+        btnTopo.style.display = 'none';
+      }
+    };
+    btnTopo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('fakeForm');
+    const email = document.getElementById('emailInput');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // evita envio real
+
+      // validação simples (usa validação nativa do browser)
+      if (!email.checkValidity()) {
+        // mostra mensagem de validação nativa
+        email.reportValidity();
+        return;
+      }
+
+      // aqui você pode mostrar um feedback visual (opcional)
+      // por exemplo: trocar texto do botão pra "Enviando..."
+      // depois redireciona para obrigado.html
+      window.location.href = 'obrigado.html';
+    });
+  });
+  </script>
+</body>
+</html>
