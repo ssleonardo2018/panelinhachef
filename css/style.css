@@ -106,3 +106,66 @@ body.dark{
 }
 body.dark .topbar{background:linear-gradient(90deg,#3b2b24,#20150f)}
 body.dark .btn.outline{border-color:rgba(255,255,255,0.12)}
+
+
+/* ===== MENU HAMBURGUER MOBILE ===== */
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo do menu mobile */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background: var(--brown-900);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  flex-direction: column;
+  z-index: 100;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-link {
+  background: transparent;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-link:hover {
+  background: var(--brown-700);
+}
+
+.mobile-link.logout {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
