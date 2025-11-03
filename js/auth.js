@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLogout.addEventListener('click', () => {
       localStorage.removeItem('pc_logged');
       window.APP.logged = null;
-      window.location.href = 'index.html';
+      window.location.href = 'home.html';
     });
   }
 
