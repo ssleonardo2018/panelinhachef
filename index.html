@@ -5,66 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panelinha Chef — Lançamento Oficial 🍳</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    :root { --primary: #e67e22; --dark: #333; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; color: var(--dark); overflow-x: hidden; position: relative; }
-    .navbar { background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .navbar-brand img { height: 50px; }
-    .navbar-nav .nav-link { color: var(--dark); font-weight: 500; margin: 0 10px; }
-    .navbar-nav .nav-link:hover { color: var(--primary); }
-    .hero { background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; text-align: center; padding: 140px 20px; position: relative; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-    .hero .content { position: relative; z-index: 2; }
-    .hero h1 { font-size: 3rem; font-weight: bold; }
-    .hero p { font-size: 1.3rem; margin: 20px 0 40px; }
-    .btn-cta { background-color: var(--primary); border: none; padding: 15px 35px; border-radius: 30px; color: #fff; transition: 0.3s; font-size: 1.1rem; }
-    .btn-cta:hover { background-color: #cf6d17; }
 
-    .features { padding: 80px 0; background: #f8f8f8; text-align: center; }
-    
-    .features h2 { color: var(--primary); font-weight: bold; margin-bottom: 40px; }
-    
-    .features .feature img { width: 100%; max-width: 250px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    
-    .benefits { padding: 80px 0; background: white; text-align: center; }
-    .benefits h2 { color: var(--primary); margin-bottom: 40px; }
-    .benefits .card { border: none; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 30px; transition: transform 0.3s; }
-    .benefits .card:hover { transform: scale(1.05); }
-    .newsletter { background-color: var(--primary); color: #fff; padding: 80px 0; text-align: center; }
-    .newsletter input { max-width: 350px; padding: 12px; border-radius: 30px; border: none; margin-right: 10px; outline: none; }
-    .newsletter button { background: #fff; color: var(--primary); border: none; border-radius: 30px; padding: 12px 25px; font-weight: 500; transition: background 0.3s; }
-    .newsletter button:hover { background: #f2f2f2; }
-    footer { background-color: var(--dark); color: #bbb; text-align: center; padding: 30px 10px; }
-
-    /* Botão Voltar ao Topo */
-    #btnTopo {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      font-size: 24px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: background-color 0.3s, transform 0.3s;
-      z-index: 99;
-      animation: pulse 2s infinite;
-    }
-    #btnTopo:hover { background-color: #cf6d17; transform: scale(1.15); }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.6); }
-      70% { box-shadow: 0 0 0 15px rgba(230, 126, 34, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
-    }
-  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg sticky-top">
