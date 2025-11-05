@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         </div>
       `;
       feed.appendChild(card);
-      // garantir que o feed carregue automaticamente
-        renderFeed();
+     
     });
     // bind fav buttons
     document.querySelectorAll('.favorite-btn').forEach(b=>{
