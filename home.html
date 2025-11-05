@@ -95,59 +95,7 @@
   <script src="js/search.js"></script>
   <script src="js/darkmode.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Carregar receitas
-      if (typeof loadRecipes === 'function') loadRecipes();
-
-      // Menu hambúrguer
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('show');
-      });
-
-      // Modal de autenticação
-      const authModal = document.getElementById('authModal');
-      const authTitle = document.getElementById('authTitle');
-      const authSubmit = document.getElementById('authSubmit');
-      const nameInput = document.getElementById('name');
-
-      const btnLogin = document.getElementById('btnLogin');
-      const btnRegister = document.getElementById('btnRegister');
-      const btnLoginMobile = document.getElementById('btnLoginMobile');
-      const btnRegisterMobile = document.getElementById('btnRegisterMobile');
-      const closeAuth = document.getElementById('closeAuth');
-      const switchToRegister = document.getElementById('switchToRegister');
-
-      function openModal(mode) {
-        if (mode === 'login') {
-          authTitle.textContent = 'Entrar';
-          nameInput.style.display = 'none';
-          authSubmit.textContent = 'Entrar';
-        } else {
-          authTitle.textContent = 'Cadastrar';
-          nameInput.style.display = 'block';
-          authSubmit.textContent = 'Cadastrar';
-        }
-        authModal.classList.remove('hidden');
-        mobileMenu.classList.remove('show'); // fecha o menu mobile
-      }
-
-      btnLogin.addEventListener('click', () => openModal('login'));
-      btnRegister.addEventListener('click', () => openModal('register'));
-      btnLoginMobile.addEventListener('click', () => openModal('login'));
-      btnRegisterMobile.addEventListener('click', () => openModal('register'));
-
-      closeAuth.addEventListener('click', () => authModal.classList.add('hidden'));
-      switchToRegister.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('register');
-      });
-
-      
-    });
-  </script>
+  
   
 </body>
 </html>
