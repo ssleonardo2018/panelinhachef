@@ -95,7 +95,42 @@
   <script src="js/search.js"></script>
   <script src="js/darkmode.js"></script>
 
-  
+  <script>
+    // Exibir nome do usuário logado
+    document.addEventListener('DOMContentLoaded', () => {
+      const userNameSpan = document.getElementById('userName');
+      const loggedEmail = localStorage.getItem('pc_logged');
+      const users = JSON.parse(localStorage.getItem('pc_users') || '{}');
+      if (loggedEmail && users[loggedEmail]) {
+        userNameSpan.textContent = users[loggedEmail].name;
+      }
+    });
+
+    // Menu hambúrguer
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+
+    // Ações do menu mobile
+    const mobileLinks = document.querySelectorAll('.mobile-link[data-view]');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const view = e.target.dataset.view;
+        document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+        document.getElementById('view' + view.charAt(0).toUpperCase() + view.slice(1)).classList.remove('hidden');
+        mobileMenu.classList.remove('show');
+      });
+    });
+
+    // Logout via menu mobile
+    document.getElementById('mobileLogout').addEventListener('click', () => {
+      localStorage.removeItem('pc_logged');
+      window.location.href = 'index.html';
+    });
+  </script>
   
 </body>
 </html>
