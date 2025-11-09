@@ -50,6 +50,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   function closeAuthModal(){ authModal.classList.add('hidden'); }
 
+  // eventos desktop
+  btnLogin.addEventListener('click', ()=> openAuth('login'));
+  btnRegister.addEventListener('click', ()=> openAuth('register'));
+
+  // eventos mobile
+  btnLoginMobile.addEventListener('click', ()=> { openAuth('login'); mobileMenu.classList.remove('show'); });
+  btnRegisterMobile.addEventListener('click', ()=> { openAuth('register'); mobileMenu.classList.remove('show'); });
+
+  closeAuth.addEventListener('click', closeAuthModal);
+  authModal.addEventListener('click', (e)=>{ if(e.target===authModal) closeAuthModal(); });
+
   // render feed
   function renderFeed(list){
     feed.innerHTML='';
