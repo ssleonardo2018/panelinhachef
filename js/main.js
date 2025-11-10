@@ -252,7 +252,10 @@ window.viewRecipe = function(id) {
             <h3>Descrição</h3>
             <p>${r.desc || ''}</p>
           </div>
-          <button onclick="window.print()">🖨️ Imprimir Receita</button>
+          <div class="buttons">
+            <button onclick="window.print()">🖨️ Imprimir Receita</button>
+            <button class="close-btn" onclick="window.close()">❌ Fechar Janela</button>
+          </div>
         </body>
       </html>
     `);
