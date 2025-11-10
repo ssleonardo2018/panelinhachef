@@ -142,6 +142,141 @@ document.addEventListener('DOMContentLoaded', ()=>{
     recipeForm.reset(); editingId = null; document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden')); document.getElementById('viewFeed').classList.remove('hidden');
   });
 
+  // HTML da janela popup
+  win.document.write(`
+    <html lang="pt-BR">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${r.title}</title>
+        <style>
+          body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #fffaf5;
+            color: #333;
+            line-height: 1.6;
+          }
+          h1 {
+            text-align: center;
+            color: #d35400;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+          }
+          img {
+            display: block;
+            margin: 15px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+          }
+          .meta {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #666;
+          }
+          .section {
+            margin-top: 20px;
+          }
+          h3 {
+            color: #e67e22;
+            font-size: 1.2em;
+            border-bottom: 1px solid #f1c40f;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+          }
+          .ingredients {
+            background: #fef0dc;
+            padding: 10px 15px;
+            border-radius: 8px;
+            list-style: disc;
+            margin-left: 20px;
+          }
+          p {
+            text-align: justify;
+          }
+          button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+          }
+          button:hover {
+            background: #cf711f;
+          }
+
+          /* Ajuste para telas pequenas */
+          @media (max-width: 600px) {
+            body {
+              padding: 15px;
+              font-size: 0.95em;
+            }
+           
+            h1 {
+              font-size: 1.5em;
+            }
+            h3 {
+              font-size: 1.1em;
+            }
+            button {
+              width: 100%;
+              font-size: 1em;
+              padding: 14px;
+            }
+          }
+
+          /* Modo de impressão */
+          @media print {
+            button { display: none; }
+            body {
+              background: white;
+              color: black;
+              padding: 10px;
+            }
+            
+           h1, h3 {
+              color: black;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <h1>${r.title}</h1>
+        <div class="meta">
+          <strong>Categoria:</strong> ${r.category} |
+          <strong>Tempo:</strong> ${r.time} min
+        </div>
+        <img src="${r.img}" alt="${r.title}">
+        <div class="section">
+          <h3>Ingredientes</h3>
+          <ul class="ingredients">
+            ${(r.ingredients || []).map(i => `<li>${i}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Descrição</h3>
+          <p>${r.desc || ''}</p>
+        </div>
+        <div class="buttons">
+          <button onclick="window.print()">🖨️ Imprimir Receita</button>
+          <button class="close-btn" onclick="window.close()">❌ Fechar Janela</button>
+        </div>
+      </body>
+    </html>
+  `);
+
+  win.document.close();
+};
+
+  
   // initial renders
   renderAll(); renderFavs();
   // helper
