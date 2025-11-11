@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manual do Usuário | Panelinha Chef</title>
   <style>
+    :root{
+      --brown-900: #341d12; /* dark outline */
+      --brown-700: #5a3a23;
+      --beige: #f5e6d6;
+      --accent: #d94f28; /* red/orange ribbon */
+      --card: #fff9f4;
+      --muted:#7b5a49;
+    }
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -15,10 +23,15 @@
       line-height: 1.6;
     }
     header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       background-color: #f26a4b;
       color: #fff;
       padding: 15px 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      background:linear-gradient(90deg,var(--brown-700),var(--brown-900));
+      color:white;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -38,15 +51,14 @@
       transition: 0.3s;
     }
     nav a:hover { opacity: 0.8; }
+    
     .logo {
-        display: block;           /* garante que aceite margin auto */
-        margin: 0 auto 20px auto; /* centraliza horizontalmente */
-        margin-top: 10px;
-        width: 200px;
-        height: 200px;
-        border-radius: 100%;
-        object-fit: cover;        /* mantém proporção dentro do círculo */
-      }
+      display: block;           /* garante que aceite margin auto */
+      margin: 0 auto 20px auto; /* centraliza horizontalmente */
+      margin-top: 10px;
+      width: 200px;
+      height: 200px;
+    }
 
     .container {
       max-width: 900px;
@@ -120,14 +132,26 @@
         padding: 5px; 
         margin: 5px; 
       }
+
+      header {
+        display:flex;
+        
+        padding: 0;
+      }
+
       button { 
         display: none; 
       }
       nav { 
-        flex-direction: column; 
+        flex-direction: row; 
       }
       nav a { 
         margin: 5px 0; 
+      }
+
+      .appname {
+        font-size: 30px;
+        font-weight: 700;
       }
     }
 
@@ -172,7 +196,7 @@
         width: 200px;
         height: 200px;
         border-radius: 100%;
-        object-fit: cover;        /* mantém proporção dentro do círculo */
+               /* mantém proporção dentro do círculo */
       }
 
     }
@@ -189,7 +213,7 @@
     <nav>
       
       <span class="appname">Panelinha Chef</span>
-      <div><a href="home.html">Home</a></div>
+      <div><a href="home.html" class="btn">Home</a></div>
     </nav>
   </header>
 
