@@ -4,7 +4,7 @@ function abrirManual() {
   const top = (screen.height / 2) - (h / 2);
 
   window.open(
-    '/panelinhachef-main/manual.html',
+    'manual.html',
     '_blank',
     `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`
   );
@@ -13,3 +13,4 @@ function abrirManual() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnManual").addEventListener("click", abrirManual);
 });
+
