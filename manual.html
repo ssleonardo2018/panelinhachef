@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual do Usuário | Panelinha Chef</title>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 5px;
+      background: #fffaf5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #f26a4b;
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { opacity: 0.8; }
+    .logo { height: 40px; }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 { color: #f26a4b; margin-top: 30px; }
+    p { line-height: 1.7; text-align: justify; margin: 10px 0; }
+    ul { margin-left: 20px; }
+    .placeholder {
+      width: 100%;
+      height: 250px;
+      background-color: #ffe4d6;
+      border: 2px dashed #f26a4b;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f26a4b;
+      font-style: italic;
+      margin: 15px 0 30px;
+    }
+    footer {
+      background-color: #f26a4b;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+
+    .btn {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background: #e67e22;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+      width: 100%;
+    }
+    .btn:hover {
+      background: #cf711f;
+    }
+
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      font-size: 20px;
+      background-color: #f26a4b;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #topBtn:hover { background-color: #d95335; }
+    @media (max-width:768px) {
+      .container { 
+        padding: 5px; 
+        margin: 5px; 
+      }
+      button { 
+        display: none; 
+      }
+      nav { 
+        flex-direction: column; 
+      }
+      nav a { 
+        margin: 5px 0; 
+      }
+    }
+
+
+    @media print {
+    /* Remove margens do navegador */
+      @page {
+        margin: 0;
+      }
+
+      /* Oculta cabeçalho e rodapé do seu site */
+      header, footer, nav, #topBtn {
+        display: none !important;
+      }
+
+      /* Remove sombras e cores de fundo */
+      body {
+        background: white !important;
+        box-shadow: none !important;
+        
+      }
+
+      /* Ajusta container para usar a largura total */
+      .container {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100%;
+        margin: 0;
+        padding: 40px;
+        
+      }
+
+      .buttons { 
+        display: none; 
+      }
+
+      /* Centraliza a logo */
+      .logo {
+        display: block;           /* garante que aceite margin auto */
+        margin: 0 auto 20px auto; /* centraliza horizontalmente */
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        object-fit: cover;        /* mantém proporção dentro do círculo */
+      }
+
+    }
+
+
+
+   
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      
+      <span class="appname">Panelinha Chef</span>
+      <div><a href="home.html">Home</a></div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <img src="img/logo.png" alt="Panelinha Chef" class="logo">
+    <h1>Manual do Usuário</h1>
+    <p><strong>Guia completo de utilização do sistema web de receitas.</strong></p>
+    <p><em>Desenvolvido por Hugo da Silva Vicente; Leonardo Santos da Silva; Pedro Daniel de Oliveira Alves; Elder Faber Faria Coelho; Nathan de Almeida Rodrigues.</em></p>
+
+    <h2>Introdução</h2>
+    <p>O <strong>Panelinha Chef</strong> é um sistema web desenvolvido para facilitar o compartilhamento e a descoberta de receitas culinárias. Com ele, os usuários podem cadastrar, visualizar, favoritar e editar receitas de forma prática e intuitiva.</p>
+
+    <h2>Acesso ao Sistema</h2>
+    <p>Para acessar o sistema, basta abrir o navegador e entrar no endereço: <strong>Panelinha Chef</strong>.</p>
+
+    <h2>Página Inicial (Home)</h2>
+    <p>Na página inicial, o usuário encontra o feed de receitas disponíveis. É possível buscar receitas por nome, categoria ou tempo de preparo.</p>
+    <div class="placeholder">Figura 1 – Tela Inicial (Home)</div>
+
+    <h2>Login e Cadastro</h2>
+    <p>Para entrar no sistema, clique em <strong>“Entrar”</strong> no canto superior direito e preencha seu e-mail e senha.</p>
+    <div class="placeholder">Figura 2 – Tela de Login</div>
+    <div class="placeholder">Figura 3 – Tela de Cadastro</div>
+
+    <h2>Funcionalidades</h2>
+    <ul>
+      <li>Buscar receitas por nome, categoria ou tempo de preparo.</li>
+      <li>Cadastrar novas receitas.</li>
+      <li>Editar e excluir receitas criadas pelo usuário.</li>
+      <li>Favoritar receitas para acesso rápido.</li>
+      <li>Atualizar dados do perfil e sair com segurança.</li>
+    </ul>
+
+    <h2>Suporte e Contato</h2>
+    <p>Em caso de dúvidas, sugestões ou suporte técnico, entre em contato através do e-mail: <strong>panelinhachef@gmail.com</strong>.</p>
+  </div>
+  <div class="buttons">
+    <button onclick="window.print()" class="btn">🖨️ Imprimir Receita</button>
+    <button class="btn" onclick="window.close()">❌ Fechar Janela</button>
+  </div>
+  <button id="topBtn" title="Voltar ao topo" >↑</button>
+
+  <footer>&copy; 2025 Panelinha Chef | Todos os direitos reservados</footer>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    topBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
+</body>
+</html>
