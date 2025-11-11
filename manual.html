@@ -38,7 +38,15 @@
       transition: 0.3s;
     }
     nav a:hover { opacity: 0.8; }
-    .logo { height: 40px; }
+    .logo {
+        display: block;           /* garante que aceite margin auto */
+        margin: 0 auto 20px auto; /* centraliza horizontalmente */
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        object-fit: cover;        /* mantém proporção dentro do círculo */
+      }
 
     .container {
       max-width: 900px;
