@@ -1,80 +1,312 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Panelinha Chef</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="img/logo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Manual do Usuário | Panelinha Chef</title>
+  <style>
+    :root{
+      --brown-900: #341d12; /* dark outline */
+      --brown-700: #5a3a23;
+      --beige: #f5e6d6;
+      --accent: #d94f28; /* red/orange ribbon */
+      --card: #fff9f4;
+      --muted:#7b5a49;
+    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 5px;
+      background: #fffaf5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background-color: #f26a4b;
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      background:linear-gradient(90deg,var(--brown-700),var(--brown-900));
+      color:white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+   
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { opacity: 0.8; }
+    
+    .logo {
+      display: block;           /* garante que aceite margin auto */
+      margin: 0 auto 20px auto; /* centraliza horizontalmente */
+      margin-top: 10px;
+      width: 300px;
+      height: 300px;
+    }
 
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .container h1, .sub-titulo, .integrantes {
+      
+      text-align: center;
+    }
+
+    h1, h2, h3 { color: #f26a4b; margin-top: 30px; }
+    p { line-height: 1.7; text-align: justify; margin: 10px 0; }
+    ul { margin-left: 20px; }
+    .placeholder {
+      width: 100%;
+      height: 250px;
+      background-color: #ffe4d6;
+      border: 2px dashed #f26a4b;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f26a4b;
+      font-style: italic;
+      margin: 15px 0 30px;
+    }
+
+
+
+    footer {
+      background-color: #f26a4b;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+
+    .btn {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background: #e67e22;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+      width: 100%;
+    }
+    .btn:hover {
+      background: #cf711f;
+    }
+
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      font-size: 20px;
+      background-color: #f26a4b;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .footer p {
+      text-align: center;
+    }
+    #topBtn:hover { background-color: #d95335; }
+    @media (max-width:768px) {
+      .container { 
+        padding: 5px; 
+        margin: 5px; 
+      }
+
+      header {
+        display:flex;
+        
+        padding: 0;
+      }
+
+      button { 
+        display: none; 
+      }
+      nav { 
+        flex-direction: row; 
+        
+       
+        
+    
+        
+      }
+      nav a { 
+        margin: 5px 0; 
+      }
+
+      .appname {
+        font-size: 30px;
+        font-weight: 700;
+        
+      }
+    }
+
+
+    @media print {
+    /* Remove margens do navegador */
+      @page {
+        margin: 0;
+      }
+
+      /* Oculta cabeçalho e rodapé do seu site */
+      header, footer, nav, #topBtn {
+        display: none !important;
+      }
+
+      /* Remove sombras e cores de fundo */
+      body {
+        background: white !important;
+        box-shadow: none !important;
+        
+      }
+
+      /* Ajusta container para usar a largura total */
+      .container {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100%;
+        margin: 0;
+        padding: 40px;
+        
+      }
+
+      .buttons { 
+        display: none; 
+      }
+
+      /* Centraliza a logo */
+      .logo {
+        display: block;           /* garante que aceite margin auto */
+        margin: 0 auto 20px auto; /* centraliza horizontalmente */
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+               /* mantém proporção dentro do círculo */
+      }
+      
+      
+
+    }
+
+
+
+   
+
+
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="img/logo.png" alt="Panelinha Chef" class="logo">
-      <span class="appname">Panelinha Chef</span>
-    </div>
-    <button class="hamburger" id="hamburgerBtn">☰</button>
-    
-
-    <!-- Menu desktop -->
-    <div class="actions" id="actionsMenu">
+  <header>
+    <nav>
+     
       
-      <button id="btnLogin" class="btn">Entrar</button>
-      <button id="btnRegister" class="btn">Criar conta</button>
-      <button onclick="abrirManual()" class="btn">📘 Manual do Usuário</button>
-    </div>
-
-    <!-- Menu mobile -->
-    <nav class="mobile-menu" id="mobileMenu">
       
-      <button id="btnLoginMobile" class="btn">Entrar</button>
-      <button id="btnRegisterMobile" class="btn">Criar conta</button>
-      <button onclick="abrirManual()" class="btn">📘 Manual do Usuário</button>
     </nav>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Receitas deliciosas ao seu alcance</h1>
-      <p>Busque por nome, ingrediente, categoria ou tempo de preparo.</p>
+  <div class="container">
+    <img src="img/logo.png" alt="Panelinha Chef" class="logo">
+    <h1>Manual do Usuário</h1>
+    <p class="sub-titulo"><strong>Guia completo de utilização do sistema web de receitas.</strong></p>
+    <p class="integrantes"><em>Desenvolvido por Hugo da Silva Vicente; Leonardo Santos da Silva; Pedro Daniel de Oliveira Alves; Elder Faber Faria Coelho; Nathan de Almeida Rodrigues.</em></p>
 
-      <form id="searchForm" class="search-advanced">
-        <input type="text" id="q" placeholder="Nome da receita ou ingrediente">
-        <select id="category">
-          <option value="">Categoria</option>
-          <option>Entrada</option>
-          <option>Prato Principal</option>
-          <option>Sobremesa</option>
-          <option>Bebida</option>
-        </select>
-        <input type="number" id="maxTime" placeholder="Tempo máximo (min)" min="1">
-        <button type="submit" class="btn">Buscar</button>
-      </form>
-    </section>
+    <h2>Introdução</h2>
+    <p>O <strong>Panelinha Chef</strong> é um sistema web desenvolvido para facilitar o compartilhamento e a descoberta de receitas culinárias. Com ele, os usuários podem cadastrar, visualizar, favoritar e editar receitas de forma prática e intuitiva.</p>
 
-    <section id="feed" class="feed">
-      <!-- cards rendered by JS -->
-      <div id="allFeed" class="feed"></div>  
-    </section>
-  </main>
+    <h2>Acesso ao Sistema</h2>
+    <p>Para acessar o sistema, basta abrir o navegador e entrar no endereço: <strong>Panelinha Chef</strong>.</p>
 
-  <!-- Auth modal reused for login/register -->
-  <div id="authModal" class="modal hidden">
-    <div class="modal-card">
-      <button id="closeAuth" class="close">✕</button>
-      <h3 id="authTitle">Entrar</h3>
-      <form id="authForm">
-        <input type="text" id="name" placeholder="Nome (apenas no cadastro)">
-        <input type="email" id="email" placeholder="E-mail" required>
-        <input type="password" id="password" placeholder="Senha" required>
-        <button id="authSubmit" class="btn">Entrar</button>
-      </form>
-      <p id="authToggle">Não tem conta? <a href="#" id="switchToRegister">Cadastrar</a></p>
-    </div>
+    <h2>Página Inicial (Home)</h2>
+    <p>Na página inicial, o usuário encontra o feed de receitas disponíveis. É possível buscar receitas por nome, categoria ou tempo de preparo.</p>
+    <div><img src="img/home.png" alt="Tela Principal" class="placeholder"></div>
+
+
+    <h2>Login e Cadastro</h2>
+    <p>Para entrar no sistema, clique em <strong>“Entrar”</strong> no canto superior direito e preencha seu e-mail e senha.</p>
+    <div><img src="img/login.png" alt="Tela Principal" class="placeholder"></div>
+    <div><img src="img/criar conta.png" alt="Tela Principal" class="placeholder"></div>
+
+
+    <h2>Dashboard do Usuário </h2>
+    <p>Após realizar o login, o usuário é direcionado ao painel principal (dashboard). Nesta 
+tela, é possível acessar o feed de receitas, cadastrar novas receitas, visualizar 
+favoritos e editar o perfil.</p>
+    <div><img src="img/dashboard.png" alt="dashboard" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário com tema DARK </h2>
+    <div><img src="img/dark.png" alt="Tela Principal" class="placeholder"></div>  
+
+    <h2>Dashboard do Usuário (Cadastro de Receitas)</h2>
+    <div><img src="img/dashboard-cadastro-receitas.png" alt="Cadastro Receitas" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário (Favoritos)</h2>
+    <div><img src="img/dashboard-favoritos.png" alt="Favoritos" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário (Perfil)</h2>
+    <div><img src="img/dashboard-troca-senha.png" alt="Perfil" class="placeholder"></div>
+    
+    <h2>Janela de imprssão (Home e Dashboard)</h2>
+    <div><img src="img/janela de impressão.png" alt="Impressão" class="placeholder"></div>
+
+    
+
+
+    <h2>Funcionalidades</h2>
+    <ul>
+      <li>Buscar receitas por nome, categoria ou tempo de preparo.</li>
+      <li>Cadastrar novas receitas.</li>
+      <li>Editar e excluir receitas criadas pelo usuário.</li>
+      <li>Favoritar receitas para acesso rápido.</li>
+      <li>Atualizar dados do perfil e sair com segurança.</li>
+    </ul>
+
+    <h2>Suporte e Contato</h2>
+    <p>Em caso de dúvidas, sugestões ou suporte técnico, entre em contato através do e-mail: <strong>panelinhachef@gmail.com</strong>.</p>
   </div>
-  <footer style="background:#333; color:#fff; text-align:center; padding:20px 10px; margin-top:40px; font-family:Arial, sans-serif;">
+  <div class="buttons">
+    <button onclick="window.print()" class="btn">🖨️ Imprimir Receita</button>
+    <button class="btn" onclick="window.close()">❌ Fechar Janela</button>
+  </div>
+  <button id="topBtn" title="Voltar ao topo" >↑</button>
+
+  <footer class="footer" style="background:#333; color:#fff; text-align:center; padding:20px 10px; margin-top:40px; font-family:Arial, sans-serif;">
       <p style="margin:5px 0;">&copy; 2025 Panelinha Chef</p>
       <p style="margin:5px 0;">Feito com <span style="color: #ff8c42;">❤</span> para quem ama cozinhar</p>
       <div style="margin-top:10px; font-size:1.3em;">
@@ -90,15 +322,18 @@
       </div>
     </footer>
 
-  
-
-  <script src="js/main.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/recipes.js"></script>
-  <script src="js/search.js"></script>
-  <script src="js/darkmode.js"></script>
-  <script src="js/abrirManual.js"></script>
- 
-  
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    topBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
 </body>
 </html>
