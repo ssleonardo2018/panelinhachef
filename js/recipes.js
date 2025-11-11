@@ -1,3 +1,4 @@
+
 /* recipes.js - manage recipes: add, edit, delete (uses pc_recipes in localStorage) */
 document.addEventListener('DOMContentLoaded', ()=>{
   // only run on dashboard
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         <div class="meta"><span class="tag">${r.category}</span><span>${r.time} min</span></div>
         <p>${r.desc||''}</p>
         <div style="margin-top:auto;display:flex;gap:8px;">
+          <button class="btn small" data-id="${r.id}" onclick="viewRecipe(${r.id})">Ver mais</button>
           ${showAuthor?`<button class="btn small" onclick="editRecipe(${r.id})">✏️ Editar</button><button class="btn outline small" onclick="deleteRecipe(${r.id})">🗑️ Excluir</button>`:''}
         </div>
       </div>
@@ -142,14 +144,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
     recipeForm.reset(); editingId = null; document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden')); document.getElementById('viewFeed').classList.remove('hidden');
   });
 
+  // Exibir receita em janela centralizada e responsiva (modo impressão incluso)
+window.viewRecipe = function(id) {
+  const r = APP.recipes.find(x => x.id === id);
+  if (!r) return alert('Receita não encontrada');
+
+  // Define tamanho da janela (ajustável)
+  const w = 600, h = 700;
+  const left = (screen.width / 2) - (w / 2);
+  const top = (screen.height / 2) - (h / 2);
+
+  const win = window.open('', '_blank',
+    `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`);
+
   // HTML da janela popup
   win.document.write(`
     <html lang="pt-BR">
       <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <title>${r.title}</title>
         <style>
+          * {
+            box-sizing: border-box;
+          }
+
           body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -157,13 +176,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
             background: #fffaf5;
             color: #333;
             line-height: 1.6;
+            word-wrap: break-word;
           }
+
           h1 {
             text-align: center;
             color: #d35400;
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 10px;
           }
+
           img {
             display: block;
             margin: 15px auto;
@@ -171,22 +193,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
             height: auto;
             border-radius: 10px;
           }
+
           .meta {
             text-align: center;
             font-size: 0.9em;
             margin-bottom: 15px;
             color: #666;
           }
+
           .section {
             margin-top: 20px;
           }
+
           h3 {
             color: #e67e22;
-            font-size: 1.2em;
+            font-size: 1.3em;
             border-bottom: 1px solid #f1c40f;
             padding-bottom: 4px;
             margin-bottom: 10px;
           }
+
           .ingredients {
             background: #fef0dc;
             padding: 10px 15px;
@@ -194,13 +220,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
             list-style: disc;
             margin-left: 20px;
           }
+
           p {
             text-align: justify;
+            margin: 0 0 15px;
           }
+
+          .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+          }
+
           button {
-            display: block;
-            margin: 30px auto;
-            padding: 12px 24px;
+            flex: 1 1 auto;
+            min-width: 130px;
+            padding: 12px 20px;
             background: #e67e22;
             color: white;
             border: none;
@@ -208,46 +245,75 @@ document.addEventListener('DOMContentLoaded', ()=>{
             cursor: pointer;
             font-size: 1em;
             box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            transition: background 0.2s ease;
           }
+
           button:hover {
             background: #cf711f;
           }
 
-          /* Ajuste para telas pequenas */
+          button.close-btn {
+            background: #c0392b;
+          }
+
+          button.close-btn:hover {
+            background: #a93226;
+          }
+
+          /* Responsividade para telas pequenas */
           @media (max-width: 600px) {
             body {
               padding: 15px;
-              font-size: 0.95em;
+              font-size: 1em;
             }
-           
+
             h1 {
-              font-size: 1.5em;
+              font-size: 1.6em;
+              margin-bottom: 8px;
             }
+
             h3 {
-              font-size: 1.1em;
+              font-size: 1.15em;
             }
+
+            .ingredients {
+              font-size: 0.95em;
+              margin-left: 15px;
+            }
+
+            .buttons {
+              flex-direction: column;
+              align-items: stretch;
+            }
+
             button {
               width: 100%;
-              font-size: 1em;
               padding: 14px;
+              font-size: 1.05em;
+            }
+
+            .meta {
+              font-size: 0.85em;
             }
           }
 
-          /* Modo de impressão */
-          @media print {
-            button { display: none; }
+          
+
+          /* Estilo para impressão */
+          @media print (max-width: 150px) {
+            .buttons { display: none; }
             body {
               background: white;
               color: black;
               padding: 10px;
             }
-            
-           h1, h3 {
+            h1, h3 {
               color: black;
             }
           }
         </style>
       </head>
+          
       <body>
         <h1>${r.title}</h1>
         <div class="meta">
@@ -276,7 +342,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   win.document.close();
 };
 
-  
+
   // initial renders
   renderAll(); renderFavs();
   // helper
