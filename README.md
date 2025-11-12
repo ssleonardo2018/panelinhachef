@@ -25,21 +25,34 @@ LINK: https://ssleonardo2018.github.io/panelinhachef
 ```
 PanelinhaChef/
 │
-├── index.html              # Página inicial (feed de receitas + login/cadastro)
-├── receitas.html           # Página de receitas do usuário (CRUD)
-├── perfil.html             # Página de perfil e favoritos
+├── index.html              # Landing page  (Divulgação de lançamento)
+├── obrigado.html           # Página de agradecimento pelo cadastro de e-mail na landing page
+├── home.html               # Página inicial (feed de receitas + login/cadastro)
+├── dashboard.html          # Página de receitas do usuário (feed de receitas + cadastro de receitas + Favoritos + Perfil)
+├── manual.html             # Página com o Manual do usuário
 │
 ├── /css
-│   ├── style.css           # Estilos gerais do site
-│   └── responsive.css      # Ajustes para dispositivos móveis
+│   ├── style.css          # Estilos gerais do home.html
+│   ├── style_index.css    # Estilos gerais do index.html
+│   └── dashboard.css      # Estilos gerais do dashboard.html
 │
 ├── /js
 │   ├── main.js             # Funções principais da aplicação
 │   ├── auth.js             # Login e cadastro de usuários
-│   ├── receitas.js         # CRUD de receitas
-│   └── favoritos.js        # Controle de favoritos
+│   ├── darkmode.js         # possibilidades de tema dark para usuários autenticados
+│   ├── abrirManual.js      # Abrir manual do usuário
+│   ├── recipes.js          # Feed de receitas
+│   └── search.js           # Pesquisa de receitas
 │
 └── /img
+    ├── home.png                   # Página inicial
+    ├── login.png                  # Realzizar acesso ao sistema (Login)
+    ├── criar conta.png            # Criar conta
+    ├── dashboard.png              # Dashboard
+    ├── dashboard-tema-dark.png    # Possibilidades de tema darka após autenticado
+    ├── janela de impressão.png    # Janela de impressão
+    ├── tela-responsiva.png        # Cadastro de Receitas
+    ├── dashboard-troca-senha.png  # Perfil (Trocar senha)
     └── logo.png            # Logotipo Panelinha Chef
 ```
 
