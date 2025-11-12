@@ -87,7 +87,7 @@ PanelinhaChef/
 - **Hugo Vicente**  
 - **Leonardo Santos**  
 - **Pedro Daniel de Oliveira**  
-- **Elder Faber**  
+- **Elder Coelho**  
 - **Nathan Nascimento**
 
 ---
@@ -97,8 +97,7 @@ PanelinhaChef/
 Este projeto é de uso educacional e livre para modificações não comerciais.  
 Crie, aprenda e evolua com o Panelinha Chef! ❤️
 
----
-
+--
 ## 🧩 Tecnologias Utilizadas
 - **HTML5**  
 - **CSS3**  
