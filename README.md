@@ -53,7 +53,7 @@ PanelinhaChef/
     ├── janela de impressão.png    # Janela de impressão
     ├── tela-responsiva.png        # Cadastro de Receitas
     ├── dashboard-troca-senha.png  # Perfil (Trocar senha)
-    └── logo.png            # Logotipo Panelinha Chef
+    └── logo.png                   # Logotipo Panelinha Chef
 ```
 
 ---
