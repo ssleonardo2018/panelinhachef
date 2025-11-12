@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Manual do Usuário | Panelinha Chef</title>
   <style>
     :root{
@@ -42,7 +43,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      text-align: center;
     }
+   
     nav a {
       color: #fff;
       text-decoration: none;
@@ -56,8 +59,8 @@
       display: block;           /* garante que aceite margin auto */
       margin: 0 auto 20px auto; /* centraliza horizontalmente */
       margin-top: 10px;
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
     }
 
     .container {
@@ -68,6 +71,12 @@
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+
+    .container h1, .sub-titulo, .integrantes {
+      
+      text-align: center;
+    }
+
     h1, h2, h3 { color: #f26a4b; margin-top: 30px; }
     p { line-height: 1.7; text-align: justify; margin: 10px 0; }
     ul { margin-left: 20px; }
@@ -84,6 +93,9 @@
       font-style: italic;
       margin: 15px 0 30px;
     }
+
+
+
     footer {
       background-color: #f26a4b;
       color: #fff;
@@ -126,6 +138,10 @@
       cursor: pointer;
       transition: 0.3s;
     }
+
+    .footer p {
+      text-align: center;
+    }
     #topBtn:hover { background-color: #d95335; }
     @media (max-width:768px) {
       .container { 
@@ -144,6 +160,11 @@
       }
       nav { 
         flex-direction: row; 
+        
+       
+        
+    
+        
       }
       nav a { 
         margin: 5px 0; 
@@ -152,6 +173,7 @@
       .appname {
         font-size: 30px;
         font-weight: 700;
+        
       }
     }
 
@@ -198,6 +220,8 @@
         border-radius: 100%;
                /* mantém proporção dentro do círculo */
       }
+      
+      
 
     }
 
@@ -211,17 +235,17 @@
 <body>
   <header>
     <nav>
+     
       
-      <span class="appname">Panelinha Chef</span>
-      <div><a href="home.html" class="btn">Home</a></div>
+      
     </nav>
   </header>
 
   <div class="container">
     <img src="img/logo.png" alt="Panelinha Chef" class="logo">
     <h1>Manual do Usuário</h1>
-    <p><strong>Guia completo de utilização do sistema web de receitas.</strong></p>
-    <p><em>Desenvolvido por Hugo da Silva Vicente; Leonardo Santos da Silva; Pedro Daniel de Oliveira Alves; Elder Faber Faria Coelho; Nathan de Almeida Rodrigues.</em></p>
+    <p class="sub-titulo"><strong>Guia completo de utilização do sistema web de receitas.</strong></p>
+    <p class="integrantes"><em>Desenvolvido por Hugo da Silva Vicente; Leonardo Santos da Silva; Pedro Daniel de Oliveira Alves; Elder Faber Faria Coelho; Nathan de Almeida Rodrigues.</em></p>
 
     <h2>Introdução</h2>
     <p>O <strong>Panelinha Chef</strong> é um sistema web desenvolvido para facilitar o compartilhamento e a descoberta de receitas culinárias. Com ele, os usuários podem cadastrar, visualizar, favoritar e editar receitas de forma prática e intuitiva.</p>
@@ -231,12 +255,38 @@
 
     <h2>Página Inicial (Home)</h2>
     <p>Na página inicial, o usuário encontra o feed de receitas disponíveis. É possível buscar receitas por nome, categoria ou tempo de preparo.</p>
-    <div class="placeholder">Figura 1 – Tela Inicial (Home)</div>
+    <div><img src="img/home.png" alt="Tela Principal" class="placeholder"></div>
+
 
     <h2>Login e Cadastro</h2>
     <p>Para entrar no sistema, clique em <strong>“Entrar”</strong> no canto superior direito e preencha seu e-mail e senha.</p>
-    <div class="placeholder">Figura 2 – Tela de Login</div>
-    <div class="placeholder">Figura 3 – Tela de Cadastro</div>
+    <div><img src="img/login.png" alt="Tela Principal" class="placeholder"></div>
+    <div><img src="img/criar conta.png" alt="Tela Principal" class="placeholder"></div>
+
+
+    <h2>Dashboard do Usuário </h2>
+    <p>Após realizar o login, o usuário é direcionado ao painel principal (dashboard). Nesta 
+tela, é possível acessar o feed de receitas, cadastrar novas receitas, visualizar 
+favoritos e editar o perfil.</p>
+    <div><img src="img/dashboard.png" alt="dashboard" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário com tema DARK </h2>
+    <div><img src="img/dark.png" alt="Tela Principal" class="placeholder"></div>  
+
+    <h2>Dashboard do Usuário (Cadastro de Receitas)</h2>
+    <div><img src="img/dashboard-cadastro-receitas.png" alt="Cadastro Receitas" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário (Favoritos)</h2>
+    <div><img src="img/dashboard-favoritos.png" alt="Favoritos" class="placeholder"></div>
+
+    <h2>Dashboard do Usuário (Perfil)</h2>
+    <div><img src="img/dashboard-troca-senha.png" alt="Perfil" class="placeholder"></div>
+    
+    <h2>Janela de imprssão (Home e Dashboard)</h2>
+    <div><img src="img/janela de impressão.png" alt="Impressão" class="placeholder"></div>
+
+    
+
 
     <h2>Funcionalidades</h2>
     <ul>
@@ -256,7 +306,21 @@
   </div>
   <button id="topBtn" title="Voltar ao topo" >↑</button>
 
-  <footer>&copy; 2025 Panelinha Chef | Todos os direitos reservados</footer>
+  <footer class="footer" style="background:#333; color:#fff; text-align:center; padding:20px 10px; margin-top:40px; font-family:Arial, sans-serif;">
+      <p style="margin:5px 0;">&copy; 2025 Panelinha Chef</p>
+      <p style="margin:5px 0;">Feito com <span style="color: #ff8c42;">❤</span> para quem ama cozinhar</p>
+      <div style="margin-top:10px; font-size:1.3em;">
+        <a href="#" style="color:#f8b400; margin:0 12px; text-decoration:none;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" style="color:#f8b400; margin:0 12px; text-decoration:none;">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" style="color:#f8b400; margin:0 12px; text-decoration:none;">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </footer>
 
   <script>
     const topBtn = document.getElementById("topBtn");
