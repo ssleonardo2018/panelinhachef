@@ -102,4 +102,4 @@ Crie, aprenda e evolua com o Panelinha Chef! ❤️
 ## 🧩 Tecnologias Utilizadas
 - **HTML5**  
 - **CSS3**  
-- **JavaScript (ES6+)**
+- **JavaScript**
