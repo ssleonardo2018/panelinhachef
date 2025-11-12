@@ -84,11 +84,11 @@ PanelinhaChef/
 
 ## 🧑‍💻 Autores
 
-- **Hugo**  
-- **Leonardo**  
-- **Pedro Daniel**  
-- **Elder**  
-- **Nathan**
+- **Hugo Vicente**  
+- **Leonardo Santos**  
+- **Pedro Daniel de Oliveira**  
+- **Elder Faber**  
+- **Nathan Nascimento**
 
 ---
 
