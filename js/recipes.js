@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   let editingId = null;
 
-  const APP = window.APP || {};
-  const logged = localStorage.getItem('pc_logged');
+  
   if(!logged){ alert('Você precisa entrar para acessar o dashboard'); location.href='index.html'; return; }
 
   // load user info
